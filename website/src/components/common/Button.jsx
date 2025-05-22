@@ -1,21 +1,41 @@
 import React from 'react';
 
-export const ExpiereinceTimeline = ({ items}) => {
-    return (
-        <div className='space-y-8'>
-            {items.map((item, index) => (
-                <div key={index} className="relative pl-8 border-l-2 border-blue-400 group">
-                    <div className="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-blue-500 border-2 border-gray-800 transition-all duration-300 group-hover:bg-purple-500 group-hover:scale-125"></div>
-                    <div className="mb-1 text-sm text-blue-300 font-semibold">{item.period}</div>
-                    <div className="font-bold text-lg">{item.title}</div>
-                    <div className="text-sm text-gray-400">{item.company} {item.location && `| ${item.location}`}</div>
-                    {item.description && (
-                        <p className="mt-2 text-gray-300 text-sm">
-                            {item.description}
-                        </p>    
-                    )}
-                </div>
-            ))}
-        </div>
-    );
+export const Button = ({ 
+  children, 
+  variant = 'primary', 
+  size = 'md', 
+  className = '', 
+  as = 'button',
+  href,
+  target,
+  rel,
+  ...props 
+}) => {
+  const baseStyles = "inline-block rounded-full font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2";
+  
+  const variantStyles = {
+    primary: "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 shadow-md hover:shadow-lg focus:ring-blue-500",
+    secondary: "bg-transparent border-2 border-gray-400 text-gray-300 hover:bg-gray-700 hover:border-gray-700 hover:text-white shadow-md hover:shadow-blue-500/30 focus:ring-gray-400",
+    outline: "border-2 border-blue-500 text-blue-300 hover:bg-blue-500 hover:text-white shadow-md hover:shadow-lg focus:ring-blue-500"
+  };
+  
+  const sizeStyles = {
+    sm: "py-2 px-4 text-sm",
+    md: "py-3 px-6 text-base",
+    lg: "py-4 px-8 text-lg"
+  };
+  
+  const Component = as;
+  const allProps = as === 'a' 
+    ? { href, target, rel: rel || (target === '_blank' ? 'noopener noreferrer' : undefined), ...props } 
+    : props;
+  
+  return (
+    <Component
+      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      {...allProps}
+    >
+      {children}
+    </Component>
+  );
 };

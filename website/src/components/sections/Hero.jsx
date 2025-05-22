@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronDown, Github } from 'lucide-react';
 import { Button } from '../common/Button';
 import { socialLinks } from '../../data/socialLinks';
+import profileImage from '../../assets/images/profile.png';
 
 export const Hero = ({ scrollToSection }) => {
   return (
@@ -46,7 +47,7 @@ export const Hero = ({ scrollToSection }) => {
             <div className="pt-6 md:pt-8 flex items-center space-x-6 justify-center md:justify-start">
               {socialLinks.map((link, index) => {
                 const Icon = link.icon === 'Github' ? Github : 
-                  // For LinkedIn, we need to use an SVG since it's not exported directly by lucide-react
+                
                   () => (
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
@@ -74,7 +75,7 @@ export const Hero = ({ scrollToSection }) => {
         <div className="md:w-2/5 lg:w-1/2 flex justify-center mt-8 md:mt-0">
           <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-blue-500/70 shadow-2xl shadow-blue-600/40 transform transition-transform duration-500 hover:scale-105 hover:shadow-purple-500/50">
             <img
-              src="https://placehold.co/400x400/7dd3fc/1e293b?text=DGJ&font=inter"
+              src={profileImage}
               alt="Daniel Garcia Jr."
               className="w-full h-full object-cover"
             />
