@@ -1,12 +1,7 @@
-/*
-====================================================================================================
-File: src/components/layout/Header.jsx (Update existing)
-Description: Main site header and navigation.
-====================================================================================================
-*/
 import React, { useEffect, useRef } from 'react';
 import { Menu, X, Terminal, Download } from 'lucide-react';
-import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData.jsx'; // Adjust path as needed
+import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData'; // Adjust path as needed
+import TerminalTypewriter from '../common/TerminalTypewriter'; // Import the new component
 
 const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMenuOpen, setIsMenuOpen }) => {
   const headerRef = useRef(null);
@@ -56,16 +51,17 @@ const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMen
           className="flex items-center gap-2 group"
           aria-label="Scroll to homepage section"
         >
+          {/* Terminal Icon and Animated Text */}
           <div className="relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-75 transition-opacity duration-300" aria-hidden="true"></div>
             <div className="relative bg-black/70 backdrop-blur-sm p-2 rounded-lg border border-black/20 flex items-center">
-              <Terminal className="w-6 h-6 text-blue-300" />
-              <span className="blinking-cursor ml-0.5 w-0.5 h-5 bg-blue-300"></span>
+              <Terminal className="w-6 h-6 text-blue-300 mr-2" />
+              {/* Animated Typewriter Text now includes its own cursor */}
+              <TerminalTypewriter className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 min-w-[100px] h-[24px]"/>
+              {/* REMOVED separate blinking cursor span from here */}
             </div>
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            {HERO_INFO.name.substring(0,1).toUpperCase()}{HERO_INFO.name.substring(1,2).toUpperCase()}<span className="text-gray-300">.</span> {/* Or your preferred logo text */}
-          </span>
+
         </a>
 
         <nav className="hidden md:flex items-center gap-1 xl:gap-2" aria-label="Desktop Navigation">

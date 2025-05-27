@@ -8,9 +8,7 @@ import {
   Server, Smartphone, Network, FileJson, Camera, Cpu
 } from 'lucide-react';
 
-// If you are using local images from src/assets, import them here:
-// import profileImageSrc from '../assets/images/profile.png';
-// import weatherAppImage from '../assets/images/weather-app.jpg'; // Example
+
 
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', icon: <Home size={18} /> },

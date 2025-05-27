@@ -15,7 +15,7 @@ const GlobalStyles = () => (
     }
     @keyframes blink {
       from, to { background-color: transparent; }
-      50% { background-color: #60a5fa; } /* Tailwind blue-300 */
+      50% { background-color: #60a5fa; }
     }
     .animate-float {
       animation-name: float;
@@ -53,12 +53,11 @@ const GlobalStyles = () => (
       }
     }
     .animate-slow-ping {
-      animation: slow-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      animation: slow-ping 4s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
     .animation-delay-slow-ping-1200 {
         animation-delay: 1.2s;
     }
-    /* Add any other animation delays if needed, e.g. .animation-delay-1000, .animation-delay-2000 */
   `}</style>
 );
 
