@@ -1,43 +1,53 @@
+
+/*
+====================================================================================================
+File: src/components/sections/About.jsx (Update existing)
+Description: About Me section.
+====================================================================================================
+*/
 import React from 'react';
-import { SectionHeading } from '../common/SectionHeading';
-import { ExperienceTimeline } from '../common/ExperienceTimeline';
-import { experience } from '../../data/experience';
+import SectionTitle from '../common/SectionTitle';
+import AnimatedCard from '../common/AnimatedCard';
+import StatCard from '../common/StatCard';
+import TimelineItem from '../common/TimelineItem';
+import { User, Sparkles, Briefcase } from 'lucide-react';
+import { ABOUT_ME } from '../../data/portfolioData'; // Adjust path
 
-export const About = () => {
+const AboutSection = () => {
   return (
-    <section id="about" className="py-20 md:py-28 min-h-screen flex items-center relative bg-gray-900 bg-opacity-30">
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-gray-900 via-blue-900/80 to-transparent opacity-40 z-0"></div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeading title="About Me" />
-
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
-          {/* Left Column: My Journey */}
-          <div className="md:col-span-3 space-y-6 bg-gray-800/40 p-6 sm:p-8 rounded-xl shadow-xl backdrop-blur-sm">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-blue-300 mb-4">My Journey</h3>
-            <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
-              I'm a Computer Scientist with a passion for creating innovative solutions through technology.
-              I currently work as an AI & Software Developer at MEG Engineers Inc., where I architect full-stack
-              applications and implement AI models focused on practical business applications.
-            </p>
-            <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
-              I have a strong grounding in both theory and practice, with a focus on web applications and
-              AI applications. Skilled in Python, JavaScript, C++, and Java, I am always seeking to learn and
-              integrate cutting-edge technologies into my work.
-            </p>
-            <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
-              My ambition is to grow as a tech innovator, making significant contributions to computer science.
-              I am keen to apply my diverse skills and enthusiasm in the tech industry, eagerly welcoming
-              opportunities for collaboration on challenging and transformative projects.
-            </p>
-          </div>
-
-          {/* Right Column: Experience & Education Timeline */}
-          <div className="md:col-span-2 space-y-6 bg-gray-800/40 p-6 sm:p-8 rounded-xl shadow-xl backdrop-blur-sm">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-purple-300 mb-4">Experience & Education</h3>
-            <ExperienceTimeline items={experience} />
-          </div>
+    <section id="about" aria-labelledby="about-section-title" className="py-20 md:py-28 relative bg-black/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <SectionTitle id="about-section-title" title="About Me" subtitle="A glimpse into my background, experience, and what drives me." />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+         <AnimatedCard as="article" delay={0} className="lg:col-span-2 bg-black/20 backdrop-blur-lg rounded-2xl p-8 border-white/5 hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-2xl font-semibold mb-6 text-blue-300 flex items-center gap-2">
+              <User className="w-6 h-6"/> My Journey
+            </h3>
+            <div className="space-y-4 text-gray-400">
+              {ABOUT_ME.story.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            </div>
+          </AnimatedCard>
+          <AnimatedCard as="aside" delay={100} className="bg-black/20 backdrop-blur-lg rounded-2xl p-8 border-white/5 hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-2xl font-semibold mb-6 text-purple-300 flex items-center gap-2">
+              <Sparkles className="w-6 h-6"/> Quick Facts
+            </h3>
+            <div className="space-y-3">
+              {ABOUT_ME.quickFacts.map((fact, index) => <StatCard key={index} icon={fact.icon} text={fact.text} />)}
+            </div>
+          </AnimatedCard>
         </div>
+        <AnimatedCard as="article" className="mt-16 md:mt-20" delay={200}>
+          <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-center text-white flex items-center justify-center gap-2">
+            <Briefcase className="w-6 h-6" /> Experience Timeline
+          </h3>
+          <ul className="max-w-3xl mx-auto">
+            {ABOUT_ME.timeline.map((item, index) => (
+              <TimelineItem key={index} item={item} isLast={index === ABOUT_ME.timeline.length - 1} index={index} />
+            ))}
+          </ul>
+        </AnimatedCard>
       </div>
     </section>
   );
 };
+export default AboutSection;

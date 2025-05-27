@@ -1,98 +1,130 @@
+/*
+====================================================================================================
+File: src/components/sections/Hero.jsx (Update existing)
+Description: Hero section of the portfolio.
+====================================================================================================
+*/
 import React from 'react';
-import { ChevronDown, Github } from 'lucide-react';
-import { Button } from '../common/Button';
-import { socialLinks } from '../../data/socialLinks';
-import profileImage from '../../assets/images/profile.png';
+import ParticleField from '../common/ParticleField';
+import AnimatedTextCharacter from '../common/AnimatedTextCharacter';
+import DynamicGradientText from '../common/DynamicGradientText';
+import AnimatedCard from '../common/AnimatedCard';
+import { ChevronDown, ArrowRight } from 'lucide-react';
+import { HERO_INFO, SOCIAL_LINKS } from '../../data/portfolioData'; // Adjust path
 
-export const Hero = ({ scrollToSection }) => {
+// Pass heroRef from App.jsx to this component for parallax effect
+const HeroSection = ({ scrollToSection, heroRef }) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 md:pt-24 relative overflow-hidden">
-      {/* Background animated gradient */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 opacity-70"></div>
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-purple-600 rounded-full opacity-20 filter blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-blue-600 rounded-full opacity-20 filter blur-3xl animate-pulse-slower"></div>
-      </div>
+    <section id="home" aria-labelledby="hero-main-title" className="min-h-screen relative overflow-hidden flex items-center justify-center text-center md:text-left pt-20 md:pt-0">
+      <ParticleField />
+      <div aria-hidden="true" className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-blue-500/20 rounded-full blur-3xl opacity-20 animate-pulse -z-10" />
+      <div aria-hidden="true" className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-purple-500/20 rounded-full blur-3xl opacity-20 animate-pulse animation-delay-2000 -z-10" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center relative z-10">
-        {/* Text Content */}
-        <div className="md:w-3/5 lg:w-1/2 md:pr-8 mt-12 md:mt-0 text-center md:text-left">
-          <div className="space-y-4 md:space-y-6">
-            <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Daniel Garcia Jr.</span>
+      <div ref={heroRef} className="container mx-auto px-4 sm:px-6 py-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-1 mt-8 md:mt-0">
+              <h1 id="hero-main-title" className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
+                <AnimatedTextCharacter
+                  text={HERO_INFO.greeting}
+                  delay={100}
+                  stagger={50}
+                  className="text-white"
+                  as="div"
+                  animationOptions={{ threshold: 0.01, triggerOnce: true }}
+                />
+                <AnimatedTextCharacter
+                  text={
+                    <span className="relative inline-block">
+                      <DynamicGradientText
+                        text={HERO_INFO.name}
+                        initialColors={['#a855f7', '#ec4899', '#f97316']}
+                        hoverColors={['#f97316', '#d946ef', '#a855f7']}
+                        className="inline-block"
+                      />
+                      <span aria-hidden="true" className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full motion-safe:animate-pulse" />
+                    </span>
+                  }
+                  delay={450 + (HERO_INFO.greeting.length * 50)}
+                  className="mt-1 md:mt-2"
+                  as="div"
+                  animationOptions={{ threshold: 0.01, triggerOnce: true }}
+                />
+                <AnimatedTextCharacter
+                  text={HERO_INFO.title}
+                  delay={950 + (HERO_INFO.greeting.length * 50)}
+                  stagger={30}
+                  className="block text-2xl md:text-3xl text-gray-300 mt-3 md:mt-4"
+                  as="p"
+                  animationOptions={{ threshold: 0.01, triggerOnce: true }}
+                />
               </h1>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl mt-2 md:mt-4 text-gray-300 font-medium">Computer Scientist & Developer</h2>
+              <AnimatedTextCharacter
+                text={HERO_INFO.subtitle}
+                delay={1850 + (HERO_INFO.greeting.length * 50)}
+                stagger={15}
+                className="block text-lg text-gray-400 leading-relaxed max-w-xl mt-4"
+                as="p"
+                animationOptions={{ threshold: 0.01, triggerOnce: true }}
+              />
             </div>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto md:mx-0">
-              I develop web applications and AI solutions with a focus on intuitive user experiences.
-              Passionate about creating technology that makes a difference.
-            </p>
-            <div className="pt-4 md:pt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-              <Button 
+            <AnimatedCard delay={2400 + (HERO_INFO.greeting.length * 50)} className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <button
                 onClick={() => scrollToSection('contact')}
-                variant="primary"
-                size="md"
+                className="cta-button group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-95 active:shadow-md"
               >
-                Contact Me
-              </Button>
-              <Button
+                <span className="relative z-10 flex items-center gap-2">
+                  Get In Touch <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </button>
+              <button
                 onClick={() => scrollToSection('projects')}
-                variant="secondary"
-                size="md"
+                className="cta-button-secondary px-8 py-4 border-2 border-gray-500 rounded-full font-medium text-gray-300 hover:bg-black/20 hover:border-gray-300 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-95 active:bg-black/10"
               >
                 View Projects
-              </Button>
-            </div>
-            <div className="pt-6 md:pt-8 flex items-center space-x-6 justify-center md:justify-start">
-              {socialLinks.map((link, index) => {
-                const Icon = link.icon === 'Github' ? Github : 
-                
-                  () => (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                  );
-                
-                return (
-                  <a 
-                    key={index}
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    aria-label={`${link.name} Profile`} 
-                    className="text-gray-400 hover:text-blue-400 transition-colors transform hover:scale-110 duration-300"
-                  >
-                    <Icon size={28} />
-                  </a>
-                );
-              })}
-            </div>
+              </button>
+            </AnimatedCard>
+            <AnimatedCard delay={2600 + (HERO_INFO.greeting.length * 50)} className="flex gap-6 pt-4 justify-center md:justify-start">
+              {SOCIAL_LINKS.map(link => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${HERO_INFO.name}'s ${link.label}`}
+                  className="interactive-icon-button p-3 rounded-full bg-black/20 border-black/30 hover:bg-black/30 hover:scale-110 transition-all text-gray-400 hover:text-white active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </AnimatedCard>
           </div>
-        </div>
-
-        {/* Profile Image */}
-        <div className="md:w-2/5 lg:w-1/2 flex justify-center mt-8 md:mt-0">
-          <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-blue-500/70 shadow-2xl shadow-blue-600/40 transform transition-transform duration-500 hover:scale-105 hover:shadow-purple-500/50">
-            <img
-              src={profileImage}
-              alt="Daniel Garcia Jr."
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <AnimatedCard delay={500} className="relative hidden lg:block">
+            <div className="relative w-full max-w-md mx-auto group">
+              <div aria-hidden="true" className="absolute inset-0 rounded-full border-2 border-blue-500/20 animate-slow-ping opacity-75 transition-opacity" />
+              <div aria-hidden="true" className="absolute inset-0 rounded-full border-2 border-purple-500/20 animate-slow-ping animation-delay-slow-ping-1200 opacity-75 transition-opacity" />
+              <div className="relative rounded-full overflow-hidden border-4 border-black/30 shadow-2xl aspect-square">
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+                <img
+                  src={HERO_INFO.profileImage} // Make sure this path is correct or import the image
+                  alt={`${HERO_INFO.name}'s profile picture`}
+                  onError={(e) => { e.target.onerror = null; e.target.src = HERO_INFO.profilePlaceholder; }}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </AnimatedCard>
         </div>
       </div>
-
-      {/* Scroll Down Arrow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
-        <button 
-          onClick={() => scrollToSection('about')} 
-          aria-label="Scroll to about section" 
-          className="text-white animate-bounce p-2 rounded-full hover:bg-white/10 transition-colors"
-        >
-          <ChevronDown size={32} />
-        </button>
-      </div>
+      <button
+        onClick={() => scrollToSection('about')}
+        aria-label="Scroll to about section"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 p-2 rounded-full hover:bg-black/20 transition-colors motion-safe:animate-bounce text-gray-400 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+      >
+        <ChevronDown className="w-8 h-8" />
+      </button>
     </section>
   );
 };
+export default HeroSection;

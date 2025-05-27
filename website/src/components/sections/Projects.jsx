@@ -1,63 +1,63 @@
-
+/*
+====================================================================================================
+File: src/components/sections/Projects.jsx (Update existing)
+Description: Featured Projects section.
+====================================================================================================
+*/
 import React, { useState, useMemo } from 'react';
-import { SectionHeading } from '../common/SectionHeading';
-import { ProjectCard } from '../common/ProjectCard';
-import { Button } from '../common/Button';
-import { projects, projectCategories } from '../../data/projects';
+import SectionTitle from '../common/SectionTitle';
+import AnimatedCard from '../common/AnimatedCard';
+import ProjectCard from '../common/ProjectCard';
+import { PROJECTS_DATA, PROJECT_CATEGORIES } from '../../data/portfolioData'; // Adjust path
 
-export const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-  
-  // Filter projects based on active category
+const ProjectsSection = () => {
+  const [activeProjectCategory, setActiveProjectCategory] = useState('All');
+
   const filteredProjects = useMemo(() => {
-    return activeCategory === 'All' 
-      ? projects 
-      : projects.filter(project => project.category === activeCategory);
-  }, [activeCategory]);
-  
+    if (activeProjectCategory === 'All') {
+      return PROJECTS_DATA;
+    }
+    return PROJECTS_DATA.filter(project => project.category === activeProjectCategory);
+  }, [activeProjectCategory]);
+
   return (
-    <section id="projects" className="py-20 md:py-28 min-h-screen bg-gray-900 bg-opacity-30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title="Featured Projects" />
-        
-        {/* Category Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
-          {projectCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 text-sm sm:text-base rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                activeCategory === category 
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg' 
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
-              }`}
-              aria-current={activeCategory === category ? 'page' : undefined}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+    <section id="projects" aria-labelledby="projects-section-title" className="py-20 md:py-28 relative">
+        <div className="container mx-auto px-4 sm:px-6">
+          <SectionTitle id="projects-section-title" title="Featured Projects" subtitle="A selection of projects that demonstrate my skills and passion." />
+          
+          <AnimatedCard delay={100} className="mb-10 md:mb-12 flex flex-wrap justify-center gap-3">
+            {PROJECT_CATEGORIES.map(category => (
+              <button
+                key={category}
+                onClick={() => setActiveProjectCategory(category)}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black/80
+                  ${activeProjectCategory === category
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105'
+                    : 'bg-black/20 text-gray-300 hover:bg-black/30 hover:text-blue-300 border border-black/30'
+                  }`}
+                aria-pressed={activeProjectCategory === category}
+              >
+                {category}
+              </button>
+            ))}
+          </AnimatedCard>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={`${activeProjectCategory}-${project.title}-${index}`}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
+          {filteredProjects.length === 0 && (
+               <AnimatedCard delay={0} className="text-center text-gray-400 col-span-full mt-8">
+                 No projects found for "{activeProjectCategory}". Try a different category!
+             </AnimatedCard>
+           )}
         </div>
-
-        {/* View More Projects Button */}
-        <div className="text-center mt-12 md:mt-16">
-          <Button
-            as="a"
-            href="https://github.com/Chavetoni?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outline"
-          >
-            View More Projects on GitHub
-          </Button>
-        </div>
-      </div>
     </section>
   );
 };
+export default ProjectsSection;
