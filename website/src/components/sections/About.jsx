@@ -11,7 +11,7 @@ import AnimatedCard from '../common/AnimatedCard';
 import StatCard from '../common/StatCard';
 import TimelineItem from '../common/TimelineItem';
 import { User, Sparkles, Briefcase } from 'lucide-react';
-import { ABOUT_ME } from '../../data/portfolioData'; // Adjust path
+import { ABOUT_ME } from '../../data/portfolioData.jsx'; // Adjust path
 
 const AboutSection = () => {
   return (

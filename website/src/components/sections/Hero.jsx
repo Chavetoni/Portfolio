@@ -10,7 +10,7 @@ import AnimatedTextCharacter from '../common/AnimatedTextCharacter';
 import DynamicGradientText from '../common/DynamicGradientText';
 import AnimatedCard from '../common/AnimatedCard';
 import { ChevronDown, ArrowRight } from 'lucide-react';
-import { HERO_INFO, SOCIAL_LINKS } from '../../data/portfolioData'; // Adjust path
+import { HERO_INFO, SOCIAL_LINKS } from '../../data/portfolioData.jsx'; // Adjust path
 
 // Pass heroRef from App.jsx to this component for parallax effect
 const HeroSection = ({ scrollToSection, heroRef }) => {

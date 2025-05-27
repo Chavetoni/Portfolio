@@ -6,7 +6,7 @@ Description: Main site header and navigation.
 */
 import React, { useEffect, useRef } from 'react';
 import { Menu, X, Terminal, Download } from 'lucide-react';
-import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData'; // Adjust path as needed
+import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData.jsx'; // Adjust path as needed
 
 const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMenuOpen, setIsMenuOpen }) => {
   const headerRef = useRef(null);

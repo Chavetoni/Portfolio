@@ -15,7 +15,7 @@ import {
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', icon: <Home size={18} /> },
   { id: 'about', label: 'About', icon: <User size={18} /> },
-  { id: 'skills', label: 'Skills', icon: <Zap size={18} /> },
+  { id: 'skills', label: 'Skills', icon: <Zap size={18} /> }, 
   { id: 'projects', label: 'Projects', icon: <AppWindow size={18} /> },
   { id: 'contact', label: 'Contact', icon: <Mail size={18} /> },
 ];

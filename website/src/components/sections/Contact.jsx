@@ -9,7 +9,7 @@ import SectionTitle from '../common/SectionTitle';
 import AnimatedCard from '../common/AnimatedCard';
 import ContactLink from '../common/ContactLink'; // Updated name
 import { Mail } from 'lucide-react';
-import { CONTACT_INFO } from '../../data/portfolioData'; // Adjust path
+import { CONTACT_INFO } from '../../data/portfolioData.jsx'; // Adjust path
 
 // scrollToSection prop might not be needed here if all navigation is handled by header/footer
 const ContactSection = ({ scrollToSection }) => {

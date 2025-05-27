@@ -17,7 +17,7 @@ import ContactSection from './components/sections/Contact'; // Updated
 // Import Data (assuming data is consolidated or imported as needed by sections)
 // For simplicity in this App.jsx, sections will import their own data.
 // Alternatively, you could import all data here and pass it down.
-import { NAV_LINKS } from './data/portfolioData'; // Example: if NAV_LINKS are needed directly in App
+import { NAV_LINKS } from './data/portfolioData.jsx'; 
 
 const PortfolioApp = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

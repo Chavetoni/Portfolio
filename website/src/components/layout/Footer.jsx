@@ -5,7 +5,7 @@ Description: Main site footer.
 ====================================================================================================
 */
 import React from 'react';
-import { FOOTER_LINKS, HERO_INFO } from '../../data/portfolioData'; // Adjust path
+import { FOOTER_LINKS, HERO_INFO } from '../../data/portfolioData.jsx'; // Adjust path
 
 const SiteFooter = React.memo(({ scrollToSection }) => {
  return (

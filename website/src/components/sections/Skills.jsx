@@ -8,7 +8,7 @@ import React from 'react';
 import SectionTitle from '../common/SectionTitle';
 import SkillCategoryCard from '../common/SkillCategoryCard';
 import ExpertiseAreaCard from '../common/ExpertiseAreaCard';
-import { SKILLS_DATA } from '../../data/portfolioData'; // Adjust path
+import { SKILLS_DATA } from '../../data/portfolioData.jsx'; // Adjust path
 
 const SkillsSection = () => {
   return (

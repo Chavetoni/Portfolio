@@ -8,7 +8,7 @@ import React, { useState, useMemo } from 'react';
 import SectionTitle from '../common/SectionTitle';
 import AnimatedCard from '../common/AnimatedCard';
 import ProjectCard from '../common/ProjectCard';
-import { PROJECTS_DATA, PROJECT_CATEGORIES } from '../../data/portfolioData'; // Adjust path
+import { PROJECTS_DATA, PROJECT_CATEGORIES } from '../../data/portfolioData.jsx'; // Adjust path
 
 const ProjectsSection = () => {
   const [activeProjectCategory, setActiveProjectCategory] = useState('All');
