@@ -1,7 +1,14 @@
+/*
+====================================================================================================
+File: src/components/layout/Header.jsx (MODIFIED)
+Description: Main site header and navigation.
+             Resume button now opens in new tab for viewing.
+====================================================================================================
+*/
 import React, { useEffect, useRef } from 'react';
-import { Menu, X, Terminal, Download } from 'lucide-react';
-import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData'; // Adjust path as needed
-import TerminalTypewriter from '../common/TerminalTypewriter'; // Import the new component
+import { Menu, X, Terminal, Eye } from 'lucide-react'; // Changed Download to Eye icon
+import { NAV_LINKS, HERO_INFO } from '../../data/portfolioData'; 
+import TerminalTypewriter from '../common/TerminalTypewriter'; 
 
 const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMenuOpen, setIsMenuOpen }) => {
   const headerRef = useRef(null);
@@ -51,19 +58,16 @@ const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMen
           className="flex items-center gap-2 group"
           aria-label="Scroll to homepage section"
         >
-          {/* Terminal Icon and Animated Text */}
           <div className="relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-75 transition-opacity duration-300" aria-hidden="true"></div>
             <div className="relative bg-black/70 backdrop-blur-sm p-2 rounded-lg border border-black/20 flex items-center">
               <Terminal className="w-6 h-6 text-blue-300 mr-2" />
-              {/* Animated Typewriter Text now includes its own cursor */}
               <TerminalTypewriter className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 min-w-[100px] h-[24px]"/>
-              {/* REMOVED separate blinking cursor span from here */}
             </div>
           </div>
-
         </a>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 xl:gap-2" aria-label="Desktop Navigation">
           {NAV_LINKS.map((item) => (
             <button
@@ -84,20 +88,23 @@ const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMen
             </button>
           ))}
           <div className="flex items-center gap-3 ml-3">
+           
             <a
-              href="/Resume.pdf" // Ensure Resume.pdf is in your public folder
-              download="Daniel_Garcia_Jr_Resume.pdf"
+              href="/Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="cta-button group relative px-4 py-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-xs font-medium shadow-lg transition-all hover:scale-105 hover:shadow-xl text-white active:scale-95 active:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              aria-label="Download Daniel Garcia Jr's Resume"
+              aria-label="View Daniel Garcia Jr's Resume" // Updated aria-label
             >
               <span className="relative z-10 flex items-center gap-1.5">
-                Resume <Download size={14} />
+                Resume
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
             </a>
           </div>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 rounded-lg hover:bg-black/20 transition-colors text-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,6 +116,7 @@ const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMen
         </button>
       </div>
 
+      {/* Mobile Navigation Menu */}
       <div
         id="mobile-menu-nav"
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out transform origin-top ${
@@ -129,12 +137,13 @@ const SiteHeader = React.memo(({ scrolled, activeSection, scrollToSection, isMen
             </button>
           ))}
           <a
-            href="/Resume.pdf" // Ensure Resume.pdf is in your public folder
-            download="Daniel_Garcia_Jr_Resume.pdf"
+            href="/Resume.pdf"
+            target="_blank" 
+            rel="noopener noreferrer"
             className="block w-full text-left py-3 px-4 rounded-lg capitalize bg-blue-600 hover:bg-blue-700 transition-colors text-white flex items-center gap-2 mt-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black/95 focus-visible:ring-blue-300"
-            aria-label="Download Daniel Garcia Jr's Resume"
+            aria-label="View Daniel Garcia Jr's Resume" // Updated aria-label
           >
-            Resume <Download size={16} />
+            Resume
           </a>
         </nav>
       </div>

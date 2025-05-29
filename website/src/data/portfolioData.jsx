@@ -4,11 +4,13 @@ import myProfilePic from '../assets/images/profile.png'
 import {
   Home, User, Zap, AppWindow, Mail, Github, Linkedin, Code, Brain, Activity, Monitor,
   ExternalLink, ArrowRight, Sparkles, Terminal, Palette, Database, Coffee, Award,
-  Calendar, MapPin, Download, Briefcase, BookOpen, BarChart3, Layers, Settings,
-  Server, Smartphone, Network, FileJson, Camera, Cpu
+  Calendar, Download, Briefcase, BookOpen, BarChart3, Layers, Settings,
+  Server, Smartphone, Network, FileJson, Camera, Cpu, GraduationCap,
+  LanguagesIcon,
+  Layers3
 } from 'lucide-react';
 
-
+import EPPCover from '../assets/images/projects/EPP.png';
 
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', icon: <Home size={18} /> },
@@ -27,27 +29,27 @@ export const HERO_INFO = {
   name: "Daniel",
   greeting: "Hi, I'm ",
   title: "Computer Scientist & Developer",
-  subtitle: "I craft elegant solutions through code, specializing in web applications and AI that push the boundaries of what's possible.",
+  subtitle: "Driven to solve problems and make a difference.",
   profileImage: myProfilePic,
   profilePlaceholder: "https://placehold.co/500x500/1F2937/9CA3AF?text=DG",
 };
 
 export const ABOUT_ME = {
   story: [
-    "I'm a Computer Scientist with a passion for creating innovative solutions through technology. Currently working as an AI & Software Developer at MEG Engineers Inc., where I architect full-stack applications and implement AI models for practical business applications.",
-    "With expertise in Python, JavaScript, C++, and Java, I combine theoretical knowledge with practical experience to build solutions that matter. My focus spans web development, machine learning, and creating intuitive user experiences.",
-    "I'm driven by the challenge of solving complex problems and the satisfaction of seeing ideas come to life through code. Always learning, always building, always pushing forward."
+    "As a Computer Scientist, I'm passionate about turning innovative ideas into reality through tech. In my current role as an AI & Software Developer,  I get to design and build full-stack applications that solve real-world business challenges.",
+    "I'm proficient in Python, JavaScript, and C++, with a keen focus on web development, machine/deep learning, and crafting intuitive user experiences.",
+    "I'm driven by the challenge of solving complex problems through code, seeing a project through from its initial idea to a finished product, and always experimenting to find the best approach. I'm all about constantly learning, building new things, and pushing what's possible."
   ],
   quickFacts: [
-    { icon: <Award className="w-5 h-5 text-blue-400" />, text: "B.S. Computer Science" },
-    { icon: <MapPin className="w-5 h-5 text-green-400" />, text: "Pharr, TX" },
+    { icon: <GraduationCap className="w-5 h-5 text-blue-400" />, text: "B.S. Computer Science" },
+    { icon: <LanguagesIcon className="w-5 h-5 text-green-400" />, text: "Bilingual" },
     { icon: <Coffee className="w-5 h-5 text-orange-400" />, text: "Coffee Powered" },
     { icon: <Code className="w-5 h-5 text-purple-400" />, text: "Full Stack Developer" },
   ],
   timeline: [
     { year: '2025 - Present', title: 'AI & Software Developer', company: 'MEG Engineers Inc.', description: 'Architecting full-stack applications and implementing AI models' },
     { year: '2024 - 2025', title: 'Assistant Project Manager', company: 'MEG Engineers Inc.', description: 'Data analysis and project coordination' },
-    { year: '2019 - 2023', title: 'B.S. Computer Science', company: 'UT Rio Grande Valley', description: 'Graduated with focus on AI and web development' }
+    { year: '2019 - 2024', title: 'B.S. Computer Science', company: 'UT Rio Grande Valley', description: 'Graduated with a focus in Web Dev and Deep Learning' }
   ]
 };
 
@@ -60,6 +62,9 @@ export const SKILLS_DATA = {
         { name: "JavaScript", icon: <FileJson size={16} className="mr-1.5 opacity-80" /> },
         { name: "C++", icon: <Code size={16} className="mr-1.5 opacity-80" /> },
         { name: "Java", icon: <Coffee size={16} className="mr-1.5 opacity-80" /> },
+        { name: "SQL", icon: <Database size={16} className="mr-1.5 opacity-80" /> },
+        { name: "HTML/CSS", icon: <Monitor size={16} className="mr-1.5 opacity-80" /> }, 
+        { name: "Dart", icon: <Code size={16} className="mr-1.5 opacity-80" /> }
       ],
       colorClasses: { text: "text-sky-300", border: "border-sky-700/50", pillBg: "bg-sky-500/10 hover:bg-sky-500/20", pillText: "text-sky-300" }
     },
@@ -70,6 +75,12 @@ export const SKILLS_DATA = {
         { name: "Node.js", icon: <Server size={16} className="mr-1.5 opacity-80" /> },
         { name: "PyTorch", icon: <Cpu size={16} className="mr-1.5 opacity-80" /> },
         { name: "Tailwind CSS", icon: <Palette size={16} className="mr-1.5 opacity-80" /> },
+        { name: "TensorFlow/Keras", icon: <Brain size={16} className="mr-1.5 opacity-80" /> }, 
+        { name: "Next.js", icon: <Layers size={16} className="mr-1.5 opacity-80" /> }, 
+        { name: "Pandas", icon: <BarChart3 size={16} className="mr-1.5 opacity-80" /> }, 
+        { name: "NumPy", icon: <Cpu size={16} className="mr-1.5 opacity-80" /> }, 
+
+        
       ],
       colorClasses: { text: "text-teal-300", border: "border-teal-700/50", pillBg: "bg-teal-500/10 hover:bg-teal-500/20", pillText: "text-teal-300" }
     },
@@ -79,7 +90,9 @@ export const SKILLS_DATA = {
         { name: "Git & GitHub", icon: <Github size={16} className="mr-1.5 opacity-80" /> },
         { name: "Docker", icon: <AppWindow size={16} className="mr-1.5 opacity-80" /> },
         { name: "Firebase", icon: <Database size={16} className="mr-1.5 opacity-80" /> },
-        { name: "MongoDB", icon: <Database size={16} className="mr-1.5 opacity-80" /> },
+        { name: "Django", icon: <Database size={16} className="mr-1.5 opacity-80" /> },
+        { name: "Supabase", icon: <Database size={16} className="mr-1.5 opacity-80" /> },
+        { name: "Vercel", icon: <AppWindow size={16} className="mr-1.5 opacity-80" /> },
       ],
       colorClasses: { text: "text-indigo-300", border: "border-indigo-700/50", pillBg: "bg-indigo-500/10 hover:bg-indigo-500/20", pillText: "text-indigo-300" }
     }
@@ -109,12 +122,6 @@ export const SKILLS_DATA = {
       colorClasses: {bgGradient: 'from-green-400 to-green-600', text: "text-green-300"},
       description: "Transforming raw data into actionable insights through comprehensive analysis, compelling visualization, and sound statistical modeling."
     },
-    {
-      title: "Technical Consultation",
-      icon: <Settings className="w-8 h-8" />,
-      colorClasses: {bgGradient: 'from-orange-400 to-orange-600', text: "text-orange-300"},
-      description: "Providing expert advice, strategic planning, and architectural guidance for your software projects and technological challenges.",
-    }
   ]
 };
 
@@ -134,7 +141,7 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/Chavetoni/weather',
     live: 'https://chavetoni.github.io/weather/'
   },
-  // ... (other projects, ensure image paths are updated)
+
   {
     title: 'EasyPeasyPal',
     category: 'Mobile Development',
@@ -144,10 +151,11 @@ export const PROJECTS_DATA = [
       { name: 'Firebase', icon: <Database size={14} className="mr-1.5 opacity-80" /> },
       { name: 'UI/UX', icon: <Palette size={14} className="mr-1.5 opacity-80" /> },
     ],
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&q=80', // Replace
+    image: EPPCover,
     placeholder: 'https://placehold.co/600x400/4B5563/9CA3AF?text=EasyPeasyPal',
     gradient: 'from-purple-500 to-pink-500',
-    github: 'https://github.com/Chavetoni'
+    github: 'https://github.com/Chavetoni',
+    website: 'https://easypeasypal.onrender.com/'
   },
   {
     title: 'AI Attendance System',
