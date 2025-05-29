@@ -14,6 +14,7 @@ import {
 import EPPCover from '../assets/images/projects/EPP.png';
 import SnakeCover from '../assets/images/projects/snake.png';
 import ClientTrackerCover from '../assets/images/projects/ClientTracker.png';
+import weatherCover from '../assets/images/projects/weather.png';
 
 
 export const NAV_LINKS = [
@@ -169,7 +170,7 @@ export const PROJECTS_DATA = [
       { name: 'REST API', icon: <Network size={14} className="mr-1.5 opacity-80" /> },
       { name: 'Responsive Design', icon: <Smartphone size={14} className="mr-1.5 opacity-80" /> },
     ],
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&q=80', // Replace or use imported variable
+    image: weatherCover,
     placeholder: 'https://placehold.co/600x400/374151/9CA3AF?text=Weather+App',
     gradient: 'from-blue-500 to-cyan-500',
     github: 'https://github.com/Chavetoni/weather',
