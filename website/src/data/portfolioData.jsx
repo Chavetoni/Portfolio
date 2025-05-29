@@ -11,6 +11,8 @@ import {
 } from 'lucide-react';
 
 import EPPCover from '../assets/images/projects/EPP.png';
+import SnakeCover from '../assets/images/projects/snake.png';
+
 
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', icon: <Home size={18} /> },
@@ -174,13 +176,13 @@ export const PROJECTS_DATA = [
   {
     title: 'Snake Game ML',
     category: 'AI/ML',
-    description: 'Classic snake game enhanced with machine learning-powered gesture controls using OpenCV for real-time hand tracking.',
+    description: 'My first Machine learning project integrating a clasic snake game with machine learning-powered gesture controls throuch Google Teachable Machine to allowed the user to control the snake using hand gestures.',
     techIcons: [
       { name: 'Python', icon: <Code size={14} className="mr-1.5 opacity-80" /> },
       { name: 'OpenCV', icon: <Camera size={14} className="mr-1.5 opacity-80" /> },
       { name: 'ML', icon: <Brain size={14} className="mr-1.5 opacity-80" /> },
     ],
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=400&fit=crop&q=80', // Replace
+    image: SnakeCover,
     placeholder: 'https://placehold.co/600x400/6B7280/9CA3AF?text=Snake+Game+ML',
     gradient: 'from-orange-500 to-red-500',
     github: 'https://github.com/Chavetoni/snakegame'
