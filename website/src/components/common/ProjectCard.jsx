@@ -75,15 +75,18 @@ const ProjectCard = React.memo(({ project, index }) => {
           </div>
 
           <div className="flex gap-4 mt-auto pt-4 border-t border-black/20">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View source code for ${project.title} on GitHub`}
-              className="flex items-center gap-2 px-4 py-2 bg-black/30 rounded-lg hover:bg-black/40 hover:text-blue-300 hover:scale-105 hover:shadow-md transition-all text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black"
-            >
-              <Github className="w-4 h-4" /> Code
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View source code for ${project.title} on GitHub`}
+                className="flex items-center gap-2 px-4 py-2 bg-black/30 rounded-lg hover:bg-black/40 hover:text-blue-300 hover:scale-105 hover:shadow-md transition-all text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black"
+              >
+                <Github className="w-4 h-4" /> Code
+              </a>
+            )}
+            
             {project.live && (
               <a
                 href={project.live}
@@ -96,7 +99,6 @@ const ProjectCard = React.memo(({ project, index }) => {
               </a>
             )}
 
-            
             {project.website && (
               <a
                 href={project.website}
@@ -109,6 +111,8 @@ const ProjectCard = React.memo(({ project, index }) => {
               </a>
             )}
           </div>
+
+
         </div>
       </div>
     </AnimatedCard>

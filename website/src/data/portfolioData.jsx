@@ -7,11 +7,13 @@ import {
   Calendar, Download, Briefcase, BookOpen, BarChart3, Layers, Settings,
   Server, Smartphone, Network, FileJson, Camera, Cpu, GraduationCap,
   LanguagesIcon,
-  Layers3
+  Layers3,
+  FileStack
 } from 'lucide-react';
 
 import EPPCover from '../assets/images/projects/EPP.png';
 import SnakeCover from '../assets/images/projects/snake.png';
+import ClientTrackerCover from '../assets/images/projects/ClientTracker.png';
 
 
 export const NAV_LINKS = [
@@ -129,21 +131,20 @@ export const SKILLS_DATA = {
 
 export const PROJECTS_DATA = [
   {
-    title: 'Weather Application',
+    title: 'Client Tracker App',
     category: 'Web Development',
-    description: 'Real-time weather app with dynamic conditions and forecasts. Features a clean UI and utilizes a third-party weather API.',
+    description: 'A CRM application for managing clients, tracking interactions, and scheduling follow-ups. Built for Project Managers to streamline client management.',
     techIcons: [
-      { name: 'JavaScript', icon: <FileJson size={14} className="mr-1.5 opacity-80" /> },
-      { name: 'REST API', icon: <Network size={14} className="mr-1.5 opacity-80" /> },
-      { name: 'Responsive Design', icon: <Smartphone size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'React', icon: <Layers size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'Next.js', icon: <Layers size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'Supabase', icon: <Server size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'UI/UX', icon: <Palette size={14} className="mr-1.5 opacity-80" /> },
     ],
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&q=80', // Replace or use imported variable
-    placeholder: 'https://placehold.co/600x400/374151/9CA3AF?text=Weather+App',
-    gradient: 'from-blue-500 to-cyan-500',
-    github: 'https://github.com/Chavetoni/weather',
-    live: 'https://chavetoni.github.io/weather/'
+    image: ClientTrackerCover,
+    placeholder: 'https://placehold.co/600x400/1F2937/9CA3AF?text=Client+Tracker+App',
+    gradient: 'from-green-500 to-teal-500',
   },
-
+  
   {
     title: 'EasyPeasyPal',
     category: 'Mobile Development',
@@ -160,19 +161,21 @@ export const PROJECTS_DATA = [
     website: 'https://easypeasypal.onrender.com/'
   },
   {
-    title: 'AI Attendance System',
-    category: 'AI/ML',
-    description: 'Facial recognition system using ResNet-18 for attendance tracking. Leverages deep learning for accurate identification.',
+    title: 'Weather Application',
+    category: 'Web Development',
+    description: 'Real-time weather app with dynamic conditions and forecasts. Features a clean UI and utilizes a third-party weather API.',
     techIcons: [
-      { name: 'Python', icon: <Code size={14} className="mr-1.5 opacity-80" /> },
-      { name: 'PyTorch', icon: <Cpu size={14} className="mr-1.5 opacity-80" /> },
-      { name: 'OpenCV', icon: <Camera size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'JavaScript', icon: <FileJson size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'REST API', icon: <Network size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'Responsive Design', icon: <Smartphone size={14} className="mr-1.5 opacity-80" /> },
     ],
-    image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?w=600&h=400&fit=crop&q=80', // Replace
-    placeholder: 'https://placehold.co/600x400/1F2937/9CA3AF?text=AI+Attendance',
-    gradient: 'from-green-500 to-teal-500',
-    github: 'https://github.com/Chavetoni'
+    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&q=80', // Replace or use imported variable
+    placeholder: 'https://placehold.co/600x400/374151/9CA3AF?text=Weather+App',
+    gradient: 'from-blue-500 to-cyan-500',
+    github: 'https://github.com/Chavetoni/weather',
+    live: 'https://chavetoni.github.io/weather/'
   },
+
   {
     title: 'Snake Game ML',
     category: 'AI/ML',
