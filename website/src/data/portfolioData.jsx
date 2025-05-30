@@ -15,6 +15,7 @@ import EPPCover from '../assets/images/projects/EPP.png';
 import SnakeCover from '../assets/images/projects/snake.png';
 import ClientTrackerCover from '../assets/images/projects/ClientTracker.png';
 import weatherCover from '../assets/images/projects/weather.png';
+import CartpoleCover from '../assets/images/projects/cartpole.png';
 
 
 export const NAV_LINKS = [
@@ -84,6 +85,7 @@ export const SKILLS_DATA = {
         { name: "Next.js", icon: <Layers size={16} className="mr-1.5 opacity-80" /> }, 
         { name: "Pandas", icon: <BarChart3 size={16} className="mr-1.5 opacity-80" /> }, 
         { name: "NumPy", icon: <Cpu size={16} className="mr-1.5 opacity-80" /> }, 
+        { name: "Vite", icon: <Zap size={16} className="mr-1.5 opacity-80" /> },
 
         
       ],
@@ -158,13 +160,12 @@ export const PROJECTS_DATA = [
     image: EPPCover,
     placeholder: 'https://placehold.co/600x400/4B5563/9CA3AF?text=EasyPeasyPal',
     gradient: 'from-purple-500 to-pink-500',
-    github: 'https://github.com/Chavetoni',
     website: 'https://easypeasypal.onrender.com/'
   },
   {
     title: 'Weather Application',
     category: 'Web Development',
-    description: 'Real-time weather app with dynamic conditions and forecasts. Features a clean UI and utilizes a third-party weather API.',
+    description: 'A web application that provides real-time weather information using an API. I created this using basic HTML, CSS, and JavaScript in my early academic years to learn how to work with APIs and build responsive designs.',
     techIcons: [
       { name: 'JavaScript', icon: <FileJson size={14} className="mr-1.5 opacity-80" /> },
       { name: 'REST API', icon: <Network size={14} className="mr-1.5 opacity-80" /> },
@@ -177,6 +178,20 @@ export const PROJECTS_DATA = [
     live: 'https://chavetoni.github.io/weather/'
   },
 
+  {
+    title: 'DQN Cartpole',
+    category: 'AI/ML',
+    description: 'Worked on a Deep Q-Network project to introduce myself to reinforcement learning. The project involved training an agent to balance a pole on a cart using Q-learning techniques.',
+    techIcons: [
+      { name: 'Python', icon: <Code size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'Tensorflow/Keras', icon: <Cpu size={14} className="mr-1.5 opacity-80" /> },
+      { name: 'Reinforcement Learning', icon: <Brain size={14} className="mr-1.5 opacity-80" /> },
+    ],
+    image: CartpoleCover,
+    placeholder: 'https://placehold.co/600x400/1F2937/9CA3AF?text=DQN+Cartpole',
+    gradient: 'from-yellow-500 to-amber-500',
+    github: 'https://github.com/Chavetoni/CartPole_RL'
+  },
   {
     title: 'Snake Game ML',
     category: 'AI/ML',

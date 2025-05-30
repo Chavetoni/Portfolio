@@ -24,10 +24,7 @@ const ContactSection = ({ scrollToSection }) => {
           <AnimatedCard delay={CONTACT_INFO.length * 100} className="bg-black/20 backdrop-blur-lg rounded-2xl p-8 border-white/5 shadow-xl">
             <h3 className="text-2xl font-semibold mb-6 text-white">Let's Create Together</h3>
             <p className="text-gray-400 mb-6">
-              Have a project in mind or just want to discuss technology and innovation? I'd love to hear from you.
-            </p>
-            <p className="text-gray-400 mb-8 text-sm">
-              I typically respond to emails within 24-48 hours.
+              Have any questions or just want to simply discuss? I'd love to hear from you.
             </p>
             <a
               href="mailto:Dangarci956@gmail.com"
